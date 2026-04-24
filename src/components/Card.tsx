@@ -1,14 +1,12 @@
-import "cards.css";
-
-type Rank = | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K" | "A";
-type Suit = "diams" | "hearts" | "clubs" | "spades";
+import "../cards.css";
+import type { Rank, Suit } from "../lib/Card";
 
 interface IcardProps {
   rank: Rank;
   suit: Suit;
 }
 
-const symbols: Record<string, string> = {
+const symbols: Record<Suit, string> = {
   diams: "♦",
   hearts: "♥",
   clubs: "♣",
