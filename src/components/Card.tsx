@@ -13,7 +13,7 @@ const symbols: Record<Suit, string> = {
   spades: "♠",
 };
 
-const Card = (props: IcardProps) => {
+const CardView = (props: IcardProps) => {
   return (
     <span className={`card rank-${props.rank.toString().toLowerCase()} ${props.suit}`}>
       <span className="rank">{props.rank}</span>
@@ -22,4 +22,4 @@ const Card = (props: IcardProps) => {
   );
 };
 
-export default Card;
+export default CardView;

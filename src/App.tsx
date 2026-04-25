@@ -1,10 +1,11 @@
 import { useState } from "react";
 import CardDeck from "./lib/CardDeck";
-import Card from "./lib/Card";
+import CardClass from "./lib/Card";
+import CardView from "./components/Card";
 import "./App.css";
 
 const App = () => {
-  const [cardBox, setCardBox] = useState<Card[]>([]);
+  const [cardBox, setCardBox] = useState<CardClass[]>([]);
 
   const dealCards = () => {
     const deck = new CardDeck();
@@ -18,9 +19,7 @@ const App = () => {
       {cardBox.length > 0 && (
         <div className="playingCards faceImages">
           {cardBox.map((card, index) => (
-            <div key={index}>
-              {card.rank} {card.suit}
-            </div>
+            <CardView key={index} rank={card.rank} suit={card.suit} />
           ))}
         </div>
       )}
