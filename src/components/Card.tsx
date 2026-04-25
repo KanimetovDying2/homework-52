@@ -15,8 +15,7 @@ const symbols: Record<Suit, string> = {
 
 const Card = (props: IcardProps) => {
   return (
-    <span
-      className={`card rank-${props.rank.toString().toLowerCase()} ${props.suit}`}>
+    <span className={`card rank-${props.rank.toString().toLowerCase()} ${props.suit}`}>
       <span className="rank">{props.rank}</span>
       <span className="suit">{symbols[props.suit]}</span>
     </span>
