@@ -1,19 +1,6 @@
 import CardClass from "./Card";
 
-const rankValues: Record<string, number> = {
-  "2": 2,
-  "3": 3,
-  "4": 4,
-  "5": 5,
-  "6": 6,
-  "7": 7,
-  "8": 8,
-  "9": 9,
-  "10": 10,
-  "J": 11,
-  "Q": 12,
-  "K": 13,
-  "A": 14,
+const rankValues: Record<string, number> = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 11, "Q": 12, "K": 13, "A": 14,
 };
 
 class PokerHand {
@@ -44,7 +31,7 @@ class PokerHand {
     const isAceLowStraight = numericRanks.join(",") === "2,3,4,5,14";
     const isStraight = isNormalStraight || isAceLowStraight;
 
-    if (isNormalStraight && isFlush && numericRanks[0] === 10) return "РОЯЛ-ФЛЕШ";
+    if (isStraight && isFlush && numericRanks[0] === 10) return "РОЯЛ-ФЛЕШ";
     if (isNormalStraight && isFlush) return "СТРИТ-ФЛЕШ";
 
     if (resultCounts.includes(4)) return "КАРЕ";
@@ -61,3 +48,5 @@ class PokerHand {
     return "СТАРШАЯ КАРТА";
   };
 }
+
+export default PokerHand;
