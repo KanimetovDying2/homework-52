@@ -14,7 +14,14 @@ class CardDeck {
     }
   }
 
+  get cardsLeft(): number {
+  return this.cards.length;
+}
+
   public getCard(): Card {
+    if (this.cards.length === 0) {
+      throw new Error("Deck is empty");
+    }
     const randomIndex = Math.floor(Math.random() * this.cards.length);
     return this.cards.splice(randomIndex, 1)[0];
   }

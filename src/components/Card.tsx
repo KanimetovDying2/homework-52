@@ -1,4 +1,3 @@
-import "../cards.css";
 import type { Rank, Suit } from "../lib/Card";
 
 interface IcardProps {

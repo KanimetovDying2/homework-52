@@ -64,8 +64,8 @@
 }
 
 .card-wrapper.selected {
-  outline: 3px solid #ff4444;
-  outline-offset: 5px;
+  outline: 1px solid #ff4444;
+  outline-offset: 1px;
   border-radius: 10px;
   transform: translateY(-25px);
 }

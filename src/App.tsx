@@ -43,7 +43,14 @@ const App = () => {
           Раздать карты
         </button>
 
-        <button className="btn-main replace-btn" onClick={replaceCards} disabled={selectedByUser.length === 0}>
+        <button
+          className="btn-main replace-btn"
+          onClick={replaceCards}
+          disabled={
+            selectedByUser.length === 0 ||
+            (deck ? deck.cardsLeft < selectedByUser.length : true)
+          }
+        >
           Заменить выбранные ({selectedByUser.length})
         </button>
       </div>
@@ -62,7 +69,8 @@ const App = () => {
             <div
               key={index}
               className={`card-wrapper ${selectedByUser.includes(index) ? "selected" : ""}`}
-              onClick={() => toggleSelection(index)}>
+              onClick={() => toggleSelection(index)}
+            >
               <CardView rank={card.rank} suit={card.suit} />
               <input
                 type="checkbox"
