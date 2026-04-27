@@ -10,6 +10,8 @@ const App = () => {
   const [deck, setDeck] = useState<CardDeck | null>(null);
   const [cardBox, setCardBox] = useState<CardClass[]>([]);
 
+  const resultText = cardBox.length > 0 ? new PokerHand(cardBox).getOutcome() : "";
+
   const dealCards = () => {
     const deck = new CardDeck();
     const cardsFromDeck = deck.getCards(5);
@@ -56,31 +58,35 @@ const App = () => {
       </div>
 
       {cardBox.length > 0 && (
-        <div className="outcome-display">
-          <h2 className="outcome-text">
-            {new PokerHand(cardBox).getOutcome()}
-          </h2>
-        </div>
-      )}
+        <>
+          <div className="outcome-display">
+            <h2 className="outcome-text">
+              {resultText}
+            </h2>
+          </div>
 
-      {cardBox.length > 0 && (
-        <div className="playingCards faceImages">
-          {cardBox.map((card, index) => (
-            <div
-              key={index}
-              className={`card-wrapper ${selectedByUser.includes(index) ? "selected" : ""}`}
-              onClick={() => toggleSelection(index)}
-            >
-              <CardView rank={card.rank} suit={card.suit} />
-              <input
-                type="checkbox"
-                checked={selectedByUser.includes(index)}
-                readOnly
-                className="hidden-checkbox"
-              />
-            </div>
-          ))}
-        </div>
+          <div className="playingCards faceImages">
+            {cardBox.map((card, index) => {
+              const isCardSelected = selectedByUser.includes(index);
+
+              return (
+                <div
+                  key={index}
+                  className={`card-wrapper ${isCardSelected ? "selected" : ""}`}
+                  onClick={() => toggleSelection(index)}
+                >
+                  <CardView rank={card.rank} suit={card.suit} />
+                  <input
+                    type="checkbox"
+                    checked={isCardSelected}
+                    readOnly
+                    className="hidden-checkbox"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );
