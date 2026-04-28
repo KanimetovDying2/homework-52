@@ -76,12 +76,6 @@ const App = () => {
                   onClick={() => toggleSelection(index)}
                 >
                   <CardView rank={card.rank} suit={card.suit} />
-                  <input
-                    type="checkbox"
-                    checked={isCardSelected}
-                    readOnly
-                    className="hidden-checkbox"
-                  />
                 </div>
               );
             })}
